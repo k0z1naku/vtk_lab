@@ -134,7 +134,7 @@ public:
             unstructuredGrid->InsertNextCell(tetra->GetCellType(), tetra->GetPointIds());
         }
 
-        string fileName = "pikachu-step-" + std::to_string(snap_number) + ".vtu";
+        string fileName = "pikachufinal-step-" + std::to_string(snap_number) + ".vtu";
         vtkSmartPointer<vtkXMLUnstructuredGridWriter> writer = vtkSmartPointer<vtkXMLUnstructuredGridWriter>::New();
         writer->SetFileName(fileName.c_str());
         writer->SetInputData(unstructuredGrid);
@@ -211,8 +211,10 @@ int main()
     }
     assert(tetrsNodesTags->size() % 4 == 0);
 
-    std::vector<int> earIndices = { 23,  76}; 
-    std::vector<int> tailIndices = {10, 26, 27, 28, 29, 31, 32, 33, 34, 35, 36, 37, 38, 39}; 
+    std::vector<int> earIndices = { 23, 76, 259, 260, 261, 262, 263, 266, 56, 229, 230, 231, 695, 695, 697, 698, 684, 687, 686, 685, 165, 167, 166, 711, 712, 713, 694, 257, 258, 259, 265, 690, 691, 692, 688, 689, 693, 64, 65, 26, 268, 267, 696,
+    380, 381, 382, 383, 96, 76, 386, 89, 847, 848, 849, 361, 362, 363, 843, 844, 845, 846, 311, 312, 313, 384, 315, 316, 317, 318, 319, 77, 852, 853, 746, 749, 750, 752, 745, 381, 382, 380, 385, 387}; 
+    std::vector<int> tailIndices = {10, 26, 27, 28, 29, 31, 32, 33, 34, 35, 36, 37, 38, 39, 332, 334, 335, 336, 40, 38, 816, 791, 331, 330, 337, 338, 339, 813, 329, 324, 325, 326, 327, 328, 814, 822, 811, 812, 804, 815, 793, 803, 802, 800, 821, 791, 799, 798, 805, 819, 810, 820, 818, 795, 823, 817, 323, 324, 320, 30, 333, 792, 794, 806, 801, 197, 705, 706, 707, 196, 195, 194, 193, 180, 179, 178, 177, 176, 175, 503, 523, 530, 516, 505, 511, 514, 519, 521, 504, 525, 524, 513, 512, 178, 177, 510, 
+    499, 529, 187, 188, 189, 190, 191, 522, 185, 184, 508, 509, 182, 533, 527, 528, 518, 17, 173, 515, 532, 506, 498, 526, 520, 507, 500, 25, 169, 16, 143, 142, 141, 140, 501, 502, 517, 181, 708, 709, 710, 172, 682, 683, 702, 703, 704, 171, 322, 170, 534, 531, 809, 797, 642, 636, 192, 637, 638, 639, 640, 641, 399, 423, 431, 433, 426, 434, 306, 307, 308, 309, 26}; 
 
     CalcMesh mesh(nodesCoord, *tetrsNodesTags, earIndices, tailIndices);
 
@@ -226,3 +228,4 @@ int main()
 
     return 0;
 }
+
